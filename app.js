@@ -1,6 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const datetime = new Date();
+
+// mongoose connect
+mongoose.connect('mongodb://localhost/invoicer');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDb connection error: '));
+db.on('open', () => {
+    console.log('connection db success at ' + datetime.toLocaleString());
+});
 
 const app = express();
 
