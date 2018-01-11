@@ -1,0 +1,23 @@
+<h1 class="page-header">Add Invoice</h1>
+<form (submit)="onAddSubmit()">
+  <div class="form-group">
+    <label>Service</label>
+    <input type="text" class="form-control" placeholder="Service" name="service" [(ngModel)]="service">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" class="form-control" placeholder="Price" name="price" [(ngModel)]="price">
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <select class="form-control" name="status" [(ngModel)]="status">
+      <option value="unpaid" selected="selected">Unpaid</option>
+      <option value="paid">Paid</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Due Date</label>
+    <input type="text" class="form-control" placeholder="Due Date" name="due" [(ngModel)]="due">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -1,0 +1,45 @@
+<h1 class="page-header">Edit Customer</h1>
+
+<div *ngIf="customer">
+    <form (submit)="onEditSubmit()" class="well">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.first_name" name="first_name" placeholder="First Name" />
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.last_name" name="last_name" placeholder="Last Name" />
+        </div>
+        <div class="form-group">
+            <label>Company</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.company" name="company" placeholder="Company" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.email" name="email" placeholder="Email" />
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.phone" name="phone" placeholder="Phone" />
+        </div>
+        <div class="form-group">
+            <label>Street</label>
+            <!-- <input type="text" class="form-control" [(ngModel)]="customer.address.street" name="street" placeholder="Street" /> -->
+            <input type="text" class="form-control" [ngModel]="customer.address?.street" (ngModelChange)="customer.address.street = $event" name="street" placeholder="Street" />
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <!-- <input type="text" class="form-control" [(ngModel)]="customer.address.city" name="city" placeholder="City" /> -->
+            <input type="text" class="form-control" [ngModel]="customer.address?.city" (ngModelChange)="customer.address.city = $event" name="city" placeholder="City" />
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input type="text" class="form-control" [ngModel]="customer.address?.state" (ngModelChange)="customer.address.state = $event" name="state" placeholder="State" />
+        </div>
+        <div class="form-group">
+            <label>Zip</label>
+            <input type="text" class="form-control" [ngModel]="customer.address?.zip" (ngModelChange)="customer.address.zip = $event" name="zip" placeholder="Zip" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
